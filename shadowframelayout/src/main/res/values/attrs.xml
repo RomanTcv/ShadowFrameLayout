@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="ShadowFrameLayout">
+        <attr name="shadowTopHeight" format="dimension"/>
+        <attr name="shadowBottomHeight" format="dimension"/>
+    </declare-styleable>
+
+</resources>
