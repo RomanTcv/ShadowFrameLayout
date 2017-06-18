@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pale_grey_two">
+
+    <r12.shadowframelayout.ShadowFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:shadowTopHeight="6dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Shadow top effect"/>
+    </r12.shadowframelayout.ShadowFrameLayout>
+
+    <r12.shadowframelayout.ShadowFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        app:shadowBottomHeight="6dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Shadow bottom effect"/>
+    </r12.shadowframelayout.ShadowFrameLayout>
+
+    <r12.shadowframelayout.ShadowFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        app:shadowTopHeight="6dp"
+        app:shadowBottomHeight="6dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Shadow top and bottom effect"/>
+    </r12.shadowframelayout.ShadowFrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@android:color/white"/>
+        <r12.shadowframelayout.ShadowFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:shadowTopHeight="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>
