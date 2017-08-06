@@ -14,13 +14,15 @@ allprojects {
 **Step 2.** Add the dependency
 ```
 dependencies {
-  compile 'com.github.R12rus:ShadowFrameLayout:0.0.2'
+  compile 'com.github.R12rus:ShadowFrameLayout:0.0.3'
 }
 ```
 
 # **How to use:<br />**
 app:shadowTopHeight="6dp"<br />
 app:shadowBottomHeight="6dp"<br />
+app:shadowLeftHeight="6dp"<br />
+app:shadowRightHeight="6dp"<br />
 
 ```
 <r12.shadowframelayout.ShadowFrameLayout
