@@ -4,6 +4,8 @@
     <declare-styleable name="ShadowFrameLayout">
         <attr name="shadowTopHeight" format="dimension"/>
         <attr name="shadowBottomHeight" format="dimension"/>
+        <attr name="shadowLeftHeight" format="dimension"/>
+        <attr name="shadowRightHeight" format="dimension"/>
     </declare-styleable>
 
 </resources>
