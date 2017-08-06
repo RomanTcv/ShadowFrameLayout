@@ -21,10 +21,19 @@ import android.widget.FrameLayout;
 public class ShadowFrameLayout extends FrameLayout {
 
     private static final int DEFAULT_SHADOW_HEIGHT = 0;
-    private Drawable mTopDrawable;
-    private int mTopShadowHeight;
-    private Drawable mBottomDrawable;
-    private int mBottomShadowHeight;
+
+    private Drawable mShadowTopDrawable;
+    private int mShadowTopHeight;
+
+    private Drawable mShadowBottomDrawable;
+    private int mShadowBottomHeight;
+
+    private Drawable mShadowLeftDrawable;
+    private int mShadowLeftHeight;
+
+    private Drawable mShadowRightDrawable;
+    private int mShadowRightHeight;
+
 
     public ShadowFrameLayout(@NonNull Context context) {
         super(context);
@@ -49,21 +58,43 @@ public class ShadowFrameLayout extends FrameLayout {
 
     private void init(Context context, AttributeSet attrs) {
         if (attrs != null) {
-            TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ShadowFrameLayout);
-            mTopShadowHeight = typedArray.getDimensionPixelOffset(R.styleable.ShadowFrameLayout_shadowTopHeight, DEFAULT_SHADOW_HEIGHT);
-            mBottomShadowHeight = typedArray.getDimensionPixelOffset(R.styleable.ShadowFrameLayout_shadowBottomHeight, DEFAULT_SHADOW_HEIGHT);
-            typedArray.recycle();
+            TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.ShadowFrameLayout);
+            mShadowTopHeight = styledAttrs.getDimensionPixelSize(R.styleable.ShadowFrameLayout_shadowTopHeight, DEFAULT_SHADOW_HEIGHT);
+            mShadowBottomHeight = styledAttrs.getDimensionPixelSize(R.styleable.ShadowFrameLayout_shadowBottomHeight, DEFAULT_SHADOW_HEIGHT);
+            mShadowLeftHeight = styledAttrs.getDimensionPixelSize(R.styleable.ShadowFrameLayout_shadowLeftHeight, DEFAULT_SHADOW_HEIGHT);
+            mShadowRightHeight = styledAttrs.getDimensionPixelSize(R.styleable.ShadowFrameLayout_shadowRightHeight, DEFAULT_SHADOW_HEIGHT);
+            styledAttrs.recycle();
         }
-        mTopDrawable = ContextCompat.getDrawable(context, R.drawable.bg_top_shadow);
-        mBottomDrawable = ContextCompat.getDrawable(context, R.drawable.bg_bottom_shadow);
+
+        mShadowTopDrawable = ContextCompat.getDrawable(getContext(), R.drawable.bg_top_shadow);
+        mShadowBottomDrawable = ContextCompat.getDrawable(getContext(), R.drawable.bg_bottom_shadow);
+        mShadowLeftDrawable = ContextCompat.getDrawable(getContext(), R.drawable.bg_left_shadow);
+        mShadowRightDrawable = ContextCompat.getDrawable(getContext(), R.drawable.bg_right_shadow);
     }
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        mTopDrawable.setBounds(0, 0, canvas.getWidth(), mTopShadowHeight);
-        mTopDrawable.draw(canvas);
-        mBottomDrawable.setBounds(0, canvas.getHeight() - mBottomShadowHeight, canvas.getWidth(), canvas.getHeight());
-        mBottomDrawable.draw(canvas);
+        drawShadow(canvas);
     }
+
+    private void drawShadow(Canvas canvas) {
+        mShadowTopDrawable.setBounds(0, 0, canvas.getWidth(), mShadowTopHeight);
+        mShadowTopDrawable.draw(canvas);
+        mShadowBottomDrawable.setBounds(0, canvas.getHeight() - mShadowBottomHeight, canvas.getWidth(), canvas.getHeight());
+        mShadowBottomDrawable.draw(canvas);
+        mShadowLeftDrawable.setBounds(0, 0, mShadowLeftHeight, canvas.getHeight());
+        mShadowLeftDrawable.draw(canvas);
+        mShadowRightDrawable.setBounds(canvas.getWidth() - mShadowRightHeight, 0, canvas.getWidth(), canvas.getHeight());
+        mShadowRightDrawable.draw(canvas);
+    }
+
+    public void setShadowsHeight(int left, int top, int right, int bottom) {
+        mShadowLeftHeight = left;
+        mShadowTopHeight = top;
+        mShadowRightHeight = right;
+        mShadowBottomHeight = bottom;
+        invalidate();
+    }
+
 }
