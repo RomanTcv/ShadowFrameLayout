@@ -97,10 +97,10 @@ public class ShadowFrameLayout extends FrameLayout {
     }
 
     public void setShadowsHeightInPixels(int left, int top, int right, int bottom) {
-        mShadowLeftHeight = (int) convertPixelsToDp(left);
-        mShadowTopHeight = (int) convertPixelsToDp(top);
-        mShadowRightHeight = (int) convertPixelsToDp(right);
-        mShadowBottomHeight = (int) convertPixelsToDp(bottom);
+        mShadowLeftHeight = convertPixelsToDp(left);
+        mShadowTopHeight = convertPixelsToDp(top);
+        mShadowRightHeight = convertPixelsToDp(right);
+        mShadowBottomHeight = convertPixelsToDp(bottom);
         invalidate();
     }
 
@@ -113,7 +113,7 @@ public class ShadowFrameLayout extends FrameLayout {
     }
 
     public void setLeftShadowInPixels(int size) {
-        mShadowLeftHeight = (int) convertPixelsToDp(size);
+        mShadowLeftHeight = convertPixelsToDp(size);
         invalidate();
     }
 
@@ -123,7 +123,7 @@ public class ShadowFrameLayout extends FrameLayout {
     }
 
     public void setRightShadowInPixels(int size) {
-        mShadowRightHeight = (int) convertPixelsToDp(size);
+        mShadowRightHeight = convertPixelsToDp(size);
         invalidate();
     }
 
@@ -133,7 +133,7 @@ public class ShadowFrameLayout extends FrameLayout {
     }
 
     public void setTopShadowInPixels(int size) {
-        mShadowTopHeight = (int) convertPixelsToDp(size);
+        mShadowTopHeight = convertPixelsToDp(size);
         invalidate();
     }
 
@@ -143,7 +143,7 @@ public class ShadowFrameLayout extends FrameLayout {
     }
 
     public void setBottomShadowInPixels(int size) {
-        mShadowBottomHeight = (int) convertPixelsToDp(size);
+        mShadowBottomHeight = convertPixelsToDp(size);
         invalidate();
     }
 
@@ -152,11 +152,11 @@ public class ShadowFrameLayout extends FrameLayout {
         invalidate();
     }
 
-    private float convertPixelsToDp(int px) {
+    private int convertPixelsToDp(int px) {
         return px / (mDisplayMetrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
     }
 
-    private float convertDpToPixel(int dp) {
+    private int convertDpToPixel(int dp) {
         return dp * (mDisplayMetrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
     }
 
