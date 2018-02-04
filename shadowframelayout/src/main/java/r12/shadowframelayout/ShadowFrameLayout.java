@@ -5,23 +5,19 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.annotation.AttrRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.annotation.StyleRes;
+import android.support.percent.PercentFrameLayout;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.widget.FrameLayout;
 
 /**
  * Created by R12 on 17.06.2017.
  */
 
-public class ShadowFrameLayout extends FrameLayout {
+public class ShadowFrameLayout extends PercentFrameLayout {
 
     private static final int DEFAULT_SHADOW_HEIGHT = 0;
 
@@ -40,24 +36,18 @@ public class ShadowFrameLayout extends FrameLayout {
     private Resources mResources;
     private DisplayMetrics mDisplayMetrics;
 
-    public ShadowFrameLayout(@NonNull Context context) {
+    public ShadowFrameLayout(Context context) {
         super(context);
         init(context, null);
     }
 
-    public ShadowFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public ShadowFrameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public ShadowFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public ShadowFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public ShadowFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
     }
 
