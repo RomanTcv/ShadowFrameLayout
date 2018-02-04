@@ -14,7 +14,7 @@ allprojects {
 **Step 2.** Add the dependency
 ```
 dependencies {
-  compile 'com.github.R12rus:ShadowFrameLayout:1.0.1'
+  compile 'com.github.R12rus:ShadowFrameLayout:1.0.2'
 }
 ```
 
